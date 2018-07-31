@@ -12,9 +12,9 @@ sample.py to generate a sample of elements from the original OSM. After
 the scripts for each aspect are completed, the full size map  is then run
 against:
 
-audit.py - examining the data quality
-data.py  - loading the data, iterative parsing, writing the output to csv files
-db.py - uploading csv data programmatically to an SQLite database, and storing
+audit.py - examining the data quality /
+data.py  - loading the data, iterative parsing, writing the output to csv files /
+db.py - uploading csv data programmatically to an SQLite database, and storing /
 it as corresponding tables respectively
 
 Several problems with the data set are found:
