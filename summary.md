@@ -20,9 +20,9 @@ it as corresponding tables respectively
 Several problems with the data set are found:
 
 1. Missing spaces upon entering *("LaurelcherryStreet")*
-2 Extra information included the street names *("Westgate Park Dr #100", "Barrett Dr Suite 206", "Fayetteville St #1100")*
-3 Inconsistent postal codes *("277030", "27713-2229", "28616")*
-4 Typos in the city names *(Morrisville is mis-spelled as Morisville)*
+2. Extra information included the street names *("Westgate Park Dr #100", "Barrett Dr Suite 206", "Fayetteville St #1100")*
+3. Inconsistent postal codes *("277030", "27713-2229", "28616")*
+4. Typos in the city names *(Morrisville is mis-spelled as Morisville)*
 
 ### Inconsistent post codes
 To standardize the postal codes, the following codes are inserted into data.py to convert all the postal codes into a basic 5-digit format.
