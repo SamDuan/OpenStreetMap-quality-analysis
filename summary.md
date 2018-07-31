@@ -81,7 +81,7 @@ each of them represents in a map:
 1. nodes_path (from "nodes.csv") - a specific point on the earth's surface
 defined by its latitude and longitude
 2. ways_path (from "ways.csv") - a way is an ordered list of between
-2 and 2,000 nodes, which are used to represent: linear features such as rivers
+2 and 2,000 nodes, which are used to represent linear features such as rivers
 and roads, and the boundaries of areas such as buildings or forests.
 3. node_tags_path (from "nodes_tags.csv") - all types of data element (nodes,
   ways) can have tags. Tags describe the meaning of the particular element to
@@ -105,6 +105,8 @@ sqlite> SELECT COUNT(*) FROM ways;
 ```sql
 243842
 ```
+It is reasonable that there are more nodes than ways based on what they
+represent.
 
 ### Number of unique users ()
 ```sql
