@@ -57,7 +57,8 @@ def shape_element():
     # end cleaning
     ...
 ```
-Another function to update the street name, update_name())
+Another function update_name(), which updates the street name, is incorporated
+into shape_element() function as well.
 
 # Data Overview and Exploration
 This section contains basic statistics and exploration of the dataset, and sql
@@ -104,7 +105,7 @@ sqlite> SELECT COUNT(*) FROM ways;
 ```sql
 243842
 ```
-It is reasonable that there are more nodes than ways based on what they
+It is reasonable that there are more nodes than ways in a map based on what they
 represent.
 
 ### Number of unique users ()
