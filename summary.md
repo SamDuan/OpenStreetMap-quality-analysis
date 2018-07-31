@@ -131,8 +131,7 @@ FROM
 ```sql
 199
 ```
-
-A nested subquery is used to retrieve the result. The innermost query retrieves
+A nested subquery is used to obtain the result. The innermost query retrieves
 all the users that appear in either nodes or ways. The middlemost selects those
 only appear once. The outermost query counts the number of such users.
 
@@ -170,8 +169,11 @@ Ralegh       1
 Ralegih      1
 chapel hill  1
 ```
-
-Firstly, the major cities in the triangle are (Raleigh-Durham-Chapel Hills) are included in this data set. Thus, it contains not only the city of Raleigh but also the nearby cities. Secondly, it is visible that there are several variations of names of the same city (e.g. "Chapel Hill", "chapel Hill", Chapel Hill, NC", "chapel hill").
+Firstly, the major cities in the triangle are (Raleigh-Durham-Chapel Hills) are
+included in this data set. Thus, it contains not only the city of Raleigh but
+also the nearby cities. Secondly, it is visible that there are several
+variations of names of the same city (e.g. "Chapel Hill", "chapel Hill", Chapel
+Hill, NC", "chapel hill").
 
 ### Top 10 amenities
 
@@ -196,7 +198,9 @@ atm              156
 school           152
 parking          144
 ```
-It is surprising to find out that there are many bicycle parking lots in this area. It is possible these parkings are around the campuses for the students, who ride bikes in their campuses.
+It is surprising to find out that there are many bicycle parking lots in this
+area. It is possible these parkings are around the campuses for the students,
+who ride bikes in their campuses.
 
 ### Top 10 shops
 
@@ -247,12 +251,28 @@ MikeInRaleigh   30578
 ```
 
 Based on the result above, it is easy to note that,
-- The top user "jumbanho" makes a significant contribution, which is larger than 65%.
+- The top user "jumbanho" makes a significant contribution, which is larger than
+ 65%.
 - The top 5 users corporately contribute to 80% of the data.
-- The rest of the users, 99.5% of all users, only contribute to 20% of the data corporately.
+- The rest of the users, 99.5% of all users, only contribute to 20% of the data
+corporately.
 
-It is understandable that certain users are more passionate about the OpenStreetMap project, and therefore contribute more to the data input. However, because data input is dominant by a particular group of people, it is possible the data entry could be skewed.
-To alleviate this issue, the OpenStreetMap project could potentially set an upper limit for the contribution from each user. In addition, if the map data of an area is largely provided by an user, a reminder could be posted as a headline, indicating that this set of data may be biased potentially. This could be an incentive to other users to contribute more to normalize the users contribution, and a gereral warning to whoever considering to use the data. A potential drawback could be the delay of building complete data sets because of the limit for the contribution from each user.
+It is understandable that certain users are more passionate about the
+OpenStreetMap project, and therefore contribute more to the data input. However,
+ because data input is dominant by a particular group of people, it is possible
+ the data entry could be skewed.
+To alleviate this issue, the OpenStreetMap project could potentially set an
+upper limit for the contribution from each user. In addition, if the map data of
+ an area is largely provided by an user, a reminder could be posted as a
+ headline, indicating that this set of data may be biased potentially. This
+ could be an incentive to other users to contribute more to normalize the users
+ contribution, and a gereral warning to whoever considering to use the data.
+ A potential drawback could be the delay of building complete data sets because
+ of the limit for the contribution from each user.
 
 # Conclusion
-This review provides a general overlook of the geography information in Raleigh area, and certain entry errors have been be identified as well. In addition, the street names and the postal codes are standardized to improve the data quality. The data in this map is largely supplied by few users, which could possibly lead to bias information, and a possible solution is suggested.
+This review provides a general overlook of the geography information in Raleigh
+area, and certain entry errors have been be identified as well. In addition, the
+ street names and the postal codes are standardized to improve the data quality.
+  The data in this map is largely supplied by few users, which could possibly
+  lead to bias information, and a possible solution is suggested.
