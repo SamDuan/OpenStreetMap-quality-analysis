@@ -3,8 +3,10 @@
 ### Area of interest : Raleigh, North Carolina, US
 This map is of a city that I used to live, so I’m quite interested to see what
 database querying reveals. Sources of data:
-- [https://mapzen.com/data/metro-extracts/metro/raleigh_north-carolina/](https://mapzen.com/data/metro-extracts/metro/raleigh_north-carolina/)
-- [https://www.openstreetmap.org/relation/179052](https://www.openstreetmap.org/relation/179052)
+- [https://mapzen.com/data/metro-extracts/metro/raleigh_north-carolina/]
+(https://mapzen.com/data/metro-extracts/metro/raleigh_north-carolina/)
+- [https://www.openstreetmap.org/relation/179052]
+(https://www.openstreetmap.org/relation/179052)
 
 ## Problems Encountered in the Map
 I started out by looking at a smaller sample of this region first and used
@@ -12,21 +14,23 @@ sample.py to generate a sample of elements from the original OSM. After
 the scripts for each aspect are completed, the full size map  is then run
 against:
 
-- audit.py - examining the data quality /
+- audit.py - examining the data quality
 - data.py  - loading the data, iterative parsing, writing the output to csv
 files
-- db.py - uploading csv data programmatically to an SQLite database, and storing 
-it as corresponding tables respectively
+- db.py - uploading csv files programmatically to an SQLite database, and
+storing them as tables, respectively.
 
 Several problems with the data set are found:
 
 1. Missing spaces upon entering *("LaurelcherryStreet")*
-2. Extra information included the street names *("Westgate Park Dr #100", "Barrett Dr Suite 206", "Fayetteville St #1100")*
+2. Extra information included the street names *("Westgate Park Dr #100",
+"Barrett Dr Suite 206", "Fayetteville St #1100")*
 3. Inconsistent postal codes *("277030", "27713-2229", "28616")*
 4. Typos in the city names *(Morrisville is mis-spelled as Morisville)*
 
 ### Inconsistent post codes
-To standardize the postal codes, the following codes are inserted into data.py to convert all the postal codes into a basic 5-digit format.
+To standardize the postal codes, the following codes are inserted into data.py
+to convert all the postal codes into a basic 5-digit format.
 
 Defining a function to update the postal codes:
 
@@ -57,7 +61,8 @@ def shape_element():
 Another function to update the street name, update_name())
 
 # Data Overview and Exploration
-This section contains basic statistics and exploration of the dataset, and sql queries used to gather them are listed as well.
+This section contains basic statistics and exploration of the dataset, and sql
+queries used to gather the information are listed as well.
 
 ### File sizes
 ```
@@ -68,7 +73,24 @@ nodes_tags.csv ................ 2.1 MB
 ways.csv ...................... 13 MB
 ways_nodes.cv ................. 63 MB
 ways_tags.csv ................. 30 MB
-```  
+```
+Five csv files are loaded into mydb database and therefore, there are five
+tables available for the sql analysis. Here are some brief explanation of what
+each of them represents in a map:
+
+1. NODES_PATH (from "nodes.csv") - a specific point on the earth's surface
+defined by its latitude and longitude
+2. WAYS_PATH (from "ways.csv") - a way is an ordered list of between
+2 and 2,000 nodes, which are used to represent: linear features such as rivers
+and roads, and the boundaries of areas such as buildings or forests.
+3. NODE_TAGS_PATH (from "nodes_tags.csv") - all types of data element (nodes,
+  ways) can have tags. Tags describe the meaning of the particular element to
+  which they are attached, such as the function of the road, the facilities, 
+  etc.
+4. WAY_NODES_PATH (from "ways_nodes.csv")
+5. WAY_TAGS_PATH (from "ways_tags.csv")
+
+
 
 ### Number of nodes
 ```sql
