@@ -10,9 +10,8 @@ database querying reveals. Sources of data:
 
 ## Problems Encountered in the Map
 I started out by looking at a smaller sample of this region first and used
-sample.py to generate a sample of elements from the original OSM. After  
-the scripts for each aspect are completed, the full size map  is then run
-against:
+sample.py to generate a sample of elements from the original OSM. After the
+scripts for each aspect are completed, the full size map  is then run against:
 
 - audit.py - examining the data quality
 - data.py  - loading the data, iterative parsing, writing the output to csv
@@ -116,6 +115,8 @@ FROM (SELECT uid FROM nodes UNION ALL SELECT uid FROM ways) e;
 ```sql
 1019
 ```
+Since the contributors of nodes and ways could be from different users, we
+use UNION ALL to select the distinct values, giving the number of unique users.
 
 ### Number of users appearing only once (having 1 post)
 ```sql
@@ -130,6 +131,10 @@ FROM
 ```sql
 199
 ```
+
+A nested subquery is used to retrieve the result. The innermost query retrieves
+all the users that appear in either nodes or ways. The middlemost selects those
+only appear once. The outermost query counts the number of such users.
 
 ### Sort cities by count, descending
 ```sql
