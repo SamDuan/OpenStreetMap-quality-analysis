@@ -1,19 +1,28 @@
-# OpenStreetMap Data Case Study
+# OpenStreetMap Data Quality Analysis
 
-### Map Area: Raleigh, NC, United States
-This map is of a city that I used to live, so I’m quite interested to see what database querying reveals. Sources of data:
+### Area of interest : Raleigh, North Carolina, US
+This map is of a city that I used to live, so I’m quite interested to see what
+database querying reveals. Sources of data:
 - [https://mapzen.com/data/metro-extracts/metro/raleigh_north-carolina/](https://mapzen.com/data/metro-extracts/metro/raleigh_north-carolina/)
 - [https://www.openstreetmap.org/relation/179052](https://www.openstreetmap.org/relation/179052)
 
-
-
 ## Problems Encountered in the Map
-The full size map was run against audit.py, data.py and db.py sequentially, and few problems with the data are found as shown below:
+I started out by looking at a smaller sample of this region first and used
+sample.py to generate a sample of elements from the original OSM. After  
+the scripts for each aspect are completed, the full size map  is then run
+against:
 
-- Missing spaces upon entering *("LaurelcherryStreet")* 
-- Extra information included the street names *("Westgate Park Dr #100", "Barrett Dr Suite 206", "Fayetteville St #1100")*
-- Inconsistent postal codes *("277030", "27713-2229", "28616")*
-- Typos in the city names *(Morrisville is mis-spelled as Morisville)*
+audit.py - examining the data quality
+data.py  - loading the data, iterative parsing, writing the output to csv files
+db.py - uploading csv data programmatically to an SQLite database, and storing
+it as corresponding tables respectively
+
+Several problems with the data set are found:
+
+1. Missing spaces upon entering *("LaurelcherryStreet")*
+2 Extra information included the street names *("Westgate Park Dr #100", "Barrett Dr Suite 206", "Fayetteville St #1100")*
+3 Inconsistent postal codes *("277030", "27713-2229", "28616")*
+4 Typos in the city names *(Morrisville is mis-spelled as Morisville)*
 
 ### Inconsistent post codes
 To standardize the postal codes, the following codes are inserted into data.py to convert all the postal codes into a basic 5-digit format.
@@ -26,8 +35,8 @@ def update_postcode(postcode):
     search = re.match(r'^\D*(\d{5}).*', postcode)
     clean_postcode = search.group(1)
     return clean_postcode
-``` 
-Incorporating update_costcode() (as well as another function to update the street name, update_name()) into shape_element() function:
+```
+Incorporating update_postcode() into shape_element() function in data.py:
 
 ``` python
 def shape_element():
@@ -39,12 +48,12 @@ def shape_element():
     # Postcodes
         elif child.attrib["k"] == 'addr:postcode':
             tag_dict["value"] = update_postcode(child.attrib["v"])
-        else: 
+        else:
             tag_dict["value"] = child.attrib["v"]
     # end cleaning
     ...
-``` 
-    
+```
+Another function to update the street name, update_name())
 
 # Data Overview and Exploration
 This section contains basic statistics and exploration of the dataset, and sql queries used to gather them are listed as well.
@@ -76,7 +85,7 @@ sqlite> SELECT COUNT(*) FROM ways;
 243842
 ```
 
-### Number of unique users
+### Number of unique users ()
 ```sql
 sqlite> SELECT COUNT(DISTINCT(e.uid))          
 FROM (SELECT uid FROM nodes UNION ALL SELECT uid FROM ways) e;
@@ -210,7 +219,7 @@ MikeInRaleigh   30578
 ```
 
 Based on the result above, it is easy to note that,
-- The top user "jumbanho" makes a significant contribution, which is larger than 65%. 
+- The top user "jumbanho" makes a significant contribution, which is larger than 65%.
 - The top 5 users corporately contribute to 80% of the data.
 - The rest of the users, 99.5% of all users, only contribute to 20% of the data corporately.
 
