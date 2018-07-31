@@ -78,19 +78,17 @@ Five csv files are loaded into mydb database and therefore, there are five
 tables available for the sql analysis. Here are some brief explanation of what
 each of them represents in a map:
 
-1. NODES_PATH (from "nodes.csv") - a specific point on the earth's surface
+1. nodes_path (from "nodes.csv") - a specific point on the earth's surface
 defined by its latitude and longitude
-2. WAYS_PATH (from "ways.csv") - a way is an ordered list of between
+2. ways_path (from "ways.csv") - a way is an ordered list of between
 2 and 2,000 nodes, which are used to represent: linear features such as rivers
 and roads, and the boundaries of areas such as buildings or forests.
-3. NODE_TAGS_PATH (from "nodes_tags.csv") - all types of data element (nodes,
+3. node_tags_path (from "nodes_tags.csv") - all types of data element (nodes,
   ways) can have tags. Tags describe the meaning of the particular element to
-  which they are attached, such as the function of the road, the facilities, 
+  which they are attached, such as the function of the road, the facilities,
   etc.
-4. WAY_NODES_PATH (from "ways_nodes.csv")
-5. WAY_TAGS_PATH (from "ways_tags.csv")
-
-
+4. way_nodes_path (from "ways_nodes.csv")
+5. way_tags_path (from "ways_tags.csv")
 
 ### Number of nodes
 ```sql
