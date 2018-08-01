@@ -97,6 +97,7 @@ sqlite> SELECT COUNT(*) FROM nodes;
 ```sql
 2374920
 ```
+Count(*) function returns the number of the record in the nodes table.
 
 ### Number of ways
 ```sql
@@ -116,6 +117,7 @@ FROM (SELECT uid FROM nodes UNION ALL SELECT uid FROM ways) e;
 ```sql
 1019
 ```
+
 Since the contributors of nodes and ways could be from different users, we
 use UNION ALL to select the distinct values, giving the number of unique users.
 
