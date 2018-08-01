@@ -222,17 +222,17 @@ this area provides lots of parkings for bicycle lovers.
 The code to generate the location of the parkings is as follows:
 
 ``` python
-query = ("CREATE TABLE result AS \
-         SELECT nodes.id, \
-         nodes.lat, \
-         nodes.lon, \
-         nodes_tags.value \
-          FROM nodes INNER JOIN nodes_tags \
+query = ("CREATE TABLE result AS
+         SELECT nodes.id,
+         nodes.lat,
+         nodes.lon,
+         nodes_tags.value
+          FROM nodes INNER JOIN nodes_tags
                   ON nodes.id = nodes_tags.id")
 cur.execute(query)
 cur.fetchall()
 
-query = ("SELECT * FROM result \
+query = ("SELECT * FROM result 
          WHERE value = 'bicycle_parking'")
 cur.execute(query)
 bike=pd.DataFrame(cur.fetchall())
