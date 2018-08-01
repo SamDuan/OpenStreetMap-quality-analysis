@@ -221,7 +221,7 @@ this area provides lots of parkings for bicycle lovers.
 
 The code to generate the location of the parkings is as follows:
 
-```python
+``` python
 query = ("CREATE TABLE result AS \
          SELECT nodes.id, \
          nodes.lat, \
