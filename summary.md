@@ -209,6 +209,9 @@ It is surprising to find out that there are many bicycle parking lots in this
 area. It is possible these parkings are around the campuses for the students,
 who ride bikes in their campuses.
 
+Inline-style:
+![alt text](https://public.tableau.com/views/bike-parking-raleigh/Sheet1?:embed=y&:display_count=yes)
+
 ### Top 10 shops
 
 ```sql
