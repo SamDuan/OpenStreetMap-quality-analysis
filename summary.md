@@ -97,7 +97,7 @@ sqlite> SELECT COUNT(*) FROM nodes;
 ```sql
 2374920
 ```
-Count(*) function returns the number of the record in the nodes table.
+Count(*) function returns the number of the record in the table nodes.
 
 ### Number of ways
 ```sql
@@ -120,6 +120,8 @@ FROM (SELECT uid FROM nodes UNION ALL SELECT uid FROM ways) e;
 
 Since the contributors of nodes and ways could be from different users, we
 use UNION ALL to select the distinct values, giving the number of unique users.
+Note that in this nested query, a table alias e (representing the new table
+  which combines the uid from nodes and ways) is used, and AS is omitted.
 
 ### Number of users appearing only once (having 1 post)
 ```sql
@@ -134,9 +136,11 @@ FROM
 ```sql
 199
 ```
-A nested subquery is used to obtain the result. The innermost query retrieves
-all the users that appear in either nodes or ways. The middlemost selects those
-only appear once. The outermost query counts the number of such users.
+A nested subquery is used to obtain the result. At first, the innermost query
+retrieves all the users that appear in either nodes or ways. The middlemost then
+selects those only appear once. The outermost query counts the number of such
+users. Note that a column alias num is used to represent the new variable
+count(*), the number of the record in the table e.
 
 ### Sort cities by count, descending
 ```sql
