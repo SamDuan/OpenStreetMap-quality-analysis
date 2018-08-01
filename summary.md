@@ -3,7 +3,7 @@
 ### Area of interest : Raleigh, North Carolina, US
 This map is of a city that I used to live, so I’m quite interested to see what
 database querying reveals. Sources of data:
--[https://mapzen.com/data/metro-extracts/metro/raleigh_north-carolina/](https://mapzen.com/data/metro-extracts/metro/raleigh_north-carolina)
+- [https://mapzen.com/data/metro-extracts/metro/raleigh_north-carolina/](https://mapzen.com/data/metro-extracts/metro/raleigh_north-carolina)
 - [https://www.openstreetmap.org/relation/179052](https://www.openstreetmap.org/relation/179052)
 
 ## Problems Encountered in the Map
