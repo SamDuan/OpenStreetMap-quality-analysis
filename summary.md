@@ -225,7 +225,7 @@ The code to generate the location of the parkings is as follows:
 import sqlite3
 import pandas as pd
 
-sqlite_file = 'mydb.db'    # name of the sqlite database file
+sqlite_file = 'mydb.db' # name of the sqlite database file
 conn = sqlite3.connect(sqlite_file) # Connect to the database
 cur = conn.cursor() # Get a cursor object
 
