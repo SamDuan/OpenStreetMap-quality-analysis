@@ -209,7 +209,34 @@ It is surprising to find out that there are many bicycle parking lots in this
 area. It is possible these parkings are around the campuses for the students,
 who ride bikes in their campuses.
 
+To do a test to see whether these parkings are around the campus, a another set
+queries are run in Python to pull out the locations of the parkings. The result
+is plotted in Tableau as shown below.
+
 ![](summary_files/fig-1.png)
+
+Actually, there are quite a number of parkings in Cary and Morrisville, which
+have no colleges, but are mainly for residential use. So it is good to know that
+this area provides lots of parkings for bicycle lovers.
+
+The code to generate the location of the parkings is as follows:
+
+```python
+query = ("CREATE TABLE result AS \
+         SELECT nodes.id, \
+         nodes.lat, \
+         nodes.lon, \
+         nodes_tags.value \
+          FROM nodes INNER JOIN nodes_tags \
+                  ON nodes.id = nodes_tags.id")
+cur.execute(query)
+cur.fetchall()
+
+query = ("SELECT * FROM result \
+         WHERE value = 'bicycle_parking'")
+cur.execute(query)
+bike=pd.DataFrame(cur.fetchall())
+```
 
 ### Top 10 shops
 
