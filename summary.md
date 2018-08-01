@@ -222,20 +222,27 @@ this area provides lots of parkings for bicycle lovers.
 The code to generate the location of the parkings is as follows:
 
 ``` python
+import sqlite3
+import pandas as pd
+
+sqlite_file = 'mydb.db'    # name of the sqlite database file
+conn = sqlite3.connect(sqlite_file) # Connect to the database
+cur = conn.cursor() # Get a cursor object
+
 query = ("CREATE TABLE result AS
          SELECT nodes.id,
          nodes.lat,
          nodes.lon,
          nodes_tags.value
-          FROM nodes INNER JOIN nodes_tags
+         FROM nodes INNER JOIN nodes_tags
                   ON nodes.id = nodes_tags.id")
 cur.execute(query)
 cur.fetchall()
 
-query = ("SELECT * FROM result 
+query = ("SELECT * FROM result
          WHERE value = 'bicycle_parking'")
 cur.execute(query)
-bike=pd.DataFrame(cur.fetchall())
+bike = pd.DataFrame(cur.fetchall())
 ```
 
 ### Top 10 shops
