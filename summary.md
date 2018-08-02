@@ -244,7 +244,7 @@ bike = pd.DataFrame(cur.fetchall())
 ```
 Note that the SQL queries are run in a Python script, rendering many benefits,
 e.g. A direct access the query result for further data exploration and analysis.
-It is particularly useful when the output is more than a number, but a data set.
+It is particularly useful when the output is more than a number but a data set.
 
 ### Top 10 shops
 
