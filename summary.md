@@ -18,9 +18,9 @@ files
 storing them as tables, respectively.
 
 For data quality validation, there are some formal measures:
-1. **Validity**: determines the constraints on individual fields and check to make
-sure the field values adhere to those constraints. e.g. a regular expression of
-address, phone number, numeric range for certain features, etc.
+1. **Validity**: determines the constraints on individual fields and check to
+make sure the field values adhere to those constraints. e.g. a regular
+expression of address, phone number, numeric range for certain features, etc.
 2. **Accuracy**:  compares the data with gold standard data (usually difficult)
 3. **Completeness**:  determines whether all data is included (usually difficult)
 4. **Consistency**: determines whether the features in the dataset are consistent
@@ -69,7 +69,7 @@ def shape_element():
     # end cleaning
     ...
 ```
-Another function update_name(), which updates the street name, is incorporated
+Another function update_name() [Validity], which updates the street name, is incorporated
 into shape_element() function as well.
 
 # Data Overview and Exploration
