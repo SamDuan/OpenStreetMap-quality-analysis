@@ -17,6 +17,18 @@ files
 - db.py - uploading csv files programmatically to an SQLite database, and
 storing them as tables, respectively.
 
+For data quality validation, there are some formal measures:
+1. Validity: determines the constraints on individual fields and check to make
+sure the field values adhere to those constraints. e.g. a regular expression of
+address, phone number, numeric range for certain features, etc.
+2. Accuracy:  (usually difficult) compares the data with gold standard data
+3. Completeness: (usually difficult) determines whether all data is included
+4. Consistency: determines whether the features in the dataset are consistent
+with each other (i.e. no contradiction)
+5. Uniformity: determines whether all the values in the field use the same units
+ of measurement
+
+
 Several problems with the data set are found:
 
 1. Missing spaces upon entering *("LaurelcherryStreet")*
