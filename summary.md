@@ -21,23 +21,25 @@ For data quality validation, there are some formal measures:
 1. Validity: determines the constraints on individual fields and check to make
 sure the field values adhere to those constraints. e.g. a regular expression of
 address, phone number, numeric range for certain features, etc.
-2. Accuracy:  (usually difficult) compares the data with gold standard data
-3. Completeness: (usually difficult) determines whether all data is included
+2. Accuracy:  compares the data with gold standard data (usually difficult)
+3. Completeness:  determines whether all data is included (usually difficult)
 4. Consistency: determines whether the features in the dataset are consistent
 with each other (i.e. no contradiction)
 5. Uniformity: determines whether all the values in the field use the same units
  of measurement
 
+Using the quality metrics above, several problems with the data set are
+found:
 
-Several problems with the data set are found:
-
-1. Missing spaces upon entering *("LaurelcherryStreet")*
-2. Extra information included the street names *("Westgate Park Dr #100",
-"Barrett Dr Suite 206", "Fayetteville St #1100")*
-3. Inconsistent postal codes *("277030", "27713-2229", "28616")*
+1. Extra information included the street names *("Westgate Park Dr #100",
+"Barrett Dr Suite 206", "Fayetteville St #1100")* [Validity]
+2. Missing spaces upon entering *("LaurelcherryStreet")* [Accuracy]
+3. Inconsistent postal codes *("277030", "27713-2229", "28616")* [Accuracy,
+Uniformity]
 4. Typos in the city names *(Morrisville is mis-spelled as Morisville)*
+[Accuracy]
 
-### Inconsistent post codes
+### Inconsistent post codes [Validity]
 To standardize the postal codes, the following codes are inserted into data.py
 to convert all the postal codes into a basic 5-digit format.
 
